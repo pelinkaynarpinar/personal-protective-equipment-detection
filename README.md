@@ -8,9 +8,11 @@ The model detects safety-related classes such as helmets, vests, gloves, and mis
 
 The aim of this project is to support workplace safety by detecting whether workers are wearing required personal protective equipment in industrial or construction environments.
 
-## Classes
+This project was developed as an educational and portfolio project to demonstrate object detection, model training, evaluation, and inference using YOLOv8.
 
-The model was trained on the following classes:
+## Detected Classes
+
+The model was trained to detect the following classes:
 
 * Gloves
 * Helmet
@@ -28,17 +30,23 @@ The dataset used in this project was downloaded from Roboflow Universe.
 **Format:** YOLOv8
 **License:** CC BY 4.0
 
-This project uses the dataset for educational and portfolio purposes. The dataset was used to train a YOLOv8 object detection model for detecting personal protective equipment in workplace images.
+The original dataset is not included in this repository. The dataset was used only for model training and evaluation.
 
-The original dataset is not included in this repository. Only the trained model, project code, training results, and sample prediction outputs are provided.
+This repository includes:
 
-According to the CC BY 4.0 license, appropriate credit is given to the dataset source. Any model training, evaluation, and prediction outputs in this repository were created as part of this project.
+* Project source code
+* Trained YOLOv8 model weights
+* Training result graphs
+* Confusion matrix outputs
+* Custom prediction examples
+
+According to the CC BY 4.0 license, appropriate credit is given to the dataset source. Any model training, evaluation, and prediction outputs in this repository were created as part of this educational project.
 
 ## Custom Prediction Examples
 
-Some sample prediction images used in this repository were AI-generated workplace images. These images were used only for inference testing and visual demonstration.
+Additional AI-generated workplace images were used only for inference testing and visual demonstration.
 
-They were not included in the training, validation, or test dataset.
+These custom images were not added to the training, validation, or test dataset. They were used only to show how the trained model performs on new images.
 
 ## Technologies Used
 
@@ -60,11 +68,42 @@ Final validation results:
 | mAP50     | 0.754 |
 | mAP50-95  | 0.418 |
 
+The model performs better on helmet and vest detection. Glove detection is less stable because gloves are small objects and may appear partially occluded.
+
 ## Results
 
-Training results and prediction examples are available in the `results/` folder.
+Training results and evaluation outputs are available in the `results/` folder.
 
-The model performs well on helmet and vest detection. Glove detection is less stable because gloves are small objects and may appear partially occluded.
+### Training Results
+
+![Training Results](results/training_results.png)
+
+### Confusion Matrix
+
+![Confusion Matrix](results/confusion_matrix.png)
+
+### Normalized Confusion Matrix
+
+![Normalized Confusion Matrix](results/confusion_matrix_normalized.png)
+
+## Sample Predictions
+
+Example prediction outputs are available in:
+
+```text
+results/custom_prediction_examples/
+```
+
+Sample prediction images show how the trained model detects personal protective equipment on new workplace images.
+
+Example classes detected in custom images:
+
+* Helmet
+* Vest
+* No-Helmet
+* No-vest
+* Gloves
+* No-gloves
 
 ## Project Structure
 
@@ -82,13 +121,17 @@ personal-protective-equipment-detection/
 ├── results/
 │   ├── training_results.png
 │   ├── confusion_matrix.png
-│   └── prediction_images/
+│   ├── confusion_matrix_normalized.png
+│   └── custom_prediction_examples/
+│       ├── sample_prediction_1.jpg
+│       ├── sample_prediction_2.jpg
+│       └── sample_prediction_3.jpg
 │
 └── dataset/
     └── README.md
 ```
 
-## How to Run Prediction
+## Installation
 
 Install the required packages:
 
@@ -96,7 +139,13 @@ Install the required packages:
 pip install -r requirements.txt
 ```
 
-Put test images into a folder named `sample_images`.
+## How to Run Prediction
+
+Put test images into a folder named:
+
+```text
+sample_images/
+```
 
 Then run:
 
@@ -106,11 +155,33 @@ python predict.py
 
 The predicted images will be saved automatically by YOLO in the `runs/detect/` folder.
 
+## How to Train the Model
+
+To train the model again, download the dataset from Roboflow Universe in YOLOv8 format.
+
+Then update the dataset path in `train.py`:
+
+```python
+DATASET_YAML_PATH = "dataset/data.yaml"
+```
+
+Run:
+
+```bash
+python train.py
+```
+
 ## Notes
 
-This is an educational computer vision project. The model was trained using YOLOv8 and tested on workplace safety images.
+This is an educational computer vision project.
 
-The model performs better on helmet and vest detection. Glove detection may be less stable due to small object size, occlusion, and image quality.
+The trained model is included in the `weights/` folder as:
+
+```text
+weights/best.pt
+```
+
+The full dataset is not included in this repository because of file size and dataset source considerations.
 
 ## Author
 
