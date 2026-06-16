@@ -34,6 +34,12 @@ The original dataset is not included in this repository. Only the trained model,
 
 According to the CC BY 4.0 license, appropriate credit is given to the dataset source. Any model training, evaluation, and prediction outputs in this repository were created as part of this project.
 
+## Custom Prediction Examples
+
+Some sample prediction images used in this repository were AI-generated workplace images. These images were used only for inference testing and visual demonstration.
+
+They were not included in the training, validation, or test dataset.
+
 ## Technologies Used
 
 * Python
