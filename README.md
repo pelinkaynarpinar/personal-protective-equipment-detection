@@ -18,6 +18,30 @@ The model was trained on the following classes:
 - No-gloves
 - No-vest
 - Vest
+- 
+## Dataset and Credits
+
+The dataset used in this project was downloaded from Roboflow Universe.
+
+**Dataset:** Personal Protective Equipment
+**Platform:** Roboflow Universe
+**Format:** YOLOv8
+**License:** CC BY 4.0
+
+Dataset classes:
+
+* Gloves
+* Helmet
+* No-Helmet
+* No-gloves
+* No-vest
+* Vest
+
+This project uses the dataset for educational and portfolio purposes. The dataset was used to train a YOLOv8 object detection model for detecting personal protective equipment in workplace images.
+
+The original dataset is not included in this repository. Only the trained model, project code, training results, and sample prediction outputs are provided.
+
+According to the CC BY 4.0 license, appropriate credit is given to the dataset source. Any model training, evaluation, and prediction outputs in this repository were created as part of this project.
 
 ## Technologies Used
 
